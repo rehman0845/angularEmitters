@@ -1,0 +1,31 @@
+
+<hr>
+<h1>Two way data binding </h1>
+<p>using ngModel</p>
+<input [(ngModel)]="name"><br>
+<span>{{ name }}</span>
+<hr>
+<hr>
+<h4>Two-way data binding without ngModel using 1. Property binding[] 2. event binding()</h4>
+<span> Let us understand few important things here: <br>
+  <br>
+  1. [value]=”name” is the property binding. We are binding value property of the input element with variable (or expression) name.
+  <br> 2. (input)= “expression” is event binding. Whenever input event will be fired expression will be executed.
+  <br>3. “name=$event.target.value” is an expression which assigns entered value to name variable.
+  <br>4. Name variable can be accessed inside AppComponent class.</span>
+  <br>
+<input type="text" [value]="name1" (input)="name1=$event.target.value">
+<br>
+<span>hello {{ name1 }}</span>
+<hr>
+<hr>
+<h3>Custom Two-way data binding</h3>
+<!-- <button class="btn btn primary" (click)="increment()"></button> <br>
+count : {{ count }}
+<button class="btn btn default" (click)="decrement()"></button> <br> -->
+<!-- <app-counter></app-counter><br> -->
+<!-- <app-child-counter></app-child-counter><br> -->
+<!-- <h4>count : {{c}}</h4> -->
+<app-counter _counter="c" (counterChange)="AppCounterChange($event)"></app-counter><br>
+<h4>In app-component count : {{c}}</h4>
+<hr>
